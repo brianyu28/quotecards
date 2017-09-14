@@ -14,9 +14,9 @@ def quotehome():
     if request.method == "GET":
         return render_template('quotecard.html')
     if request.method == "POST":
-        quote = request.form['quote']
-        author = request.form['author']
-        position = request.form['position']
+        quote = request.form['quote'] or " "
+        author = request.form['author'] or " "
+        position = request.form['position'] or " "
         opinion = 'opinion' in request.form
         filename = img_generate(quote, author, position, opinion)
         mimetype = "image/png"
